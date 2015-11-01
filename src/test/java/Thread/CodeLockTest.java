@@ -1,4 +1,4 @@
-package Thread;
+package thread;
 
 import junit.framework.Assert;
 import org.junit.Test;

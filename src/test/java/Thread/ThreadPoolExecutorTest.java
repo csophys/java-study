@@ -1,4 +1,4 @@
-package Thread;
+package thread;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

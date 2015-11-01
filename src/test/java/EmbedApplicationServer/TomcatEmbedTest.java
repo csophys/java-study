@@ -1,4 +1,4 @@
-package EmbedApplicationServer;
+package embedApplicationServer;
 
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
