@@ -9,12 +9,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class MessagePrinter {
 
-    private MessageService messageService;
-
     @Autowired
-    public MessagePrinter(MessageService messageService) {
-        this.messageService = messageService;
-    }
+    MessageService messageService;
+
 
     public void printMessage() {
         System.out.println(messageService.getMessage());
