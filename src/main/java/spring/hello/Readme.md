@@ -2,6 +2,7 @@
 
 ##  @ComponentScan @Import @ImportResource
 bean扫描
+
 ##  @Bean @Component @Service @Repository @Controller @Configuration
 bean定义
 
@@ -11,5 +12,8 @@ bean方法拦截
 ##  @AutoWired @Qualifier @Resource
 bean使用
 
-##  @Profile
+##  @Profile @PropertySource
 环境配置
+
+##  @EventListener @Order(6)
+监听事件，publish block方法，order 决定顺序

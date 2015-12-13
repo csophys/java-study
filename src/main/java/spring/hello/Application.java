@@ -17,10 +17,6 @@ public class Application {
         context.register(QAConfig.class, ProductConfig.class);
         context.refresh();
 
-/*
-        System.out.println(context.getBean("messageService"));
-        System.out.println(context.getBean("productConfig"));
-*/
         MessagePrinter messagePrinter = context.getBean(MessagePrinter.class);
         messagePrinter.printMessage();
     }

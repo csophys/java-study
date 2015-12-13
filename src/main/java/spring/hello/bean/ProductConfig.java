@@ -1,6 +1,9 @@
 package spring.hello.bean;
 
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * Created by csophys on 15/12/10.
@@ -12,6 +15,9 @@ import org.springframework.context.annotation.*;
 @PropertySource("config.propertity")
 @Configuration
 public class ProductConfig {
+    @Resource
+    ApplicationEventPublisher applicationEventPublisher;
+
     @Bean(name = {"messageServiceV1", "messageServiceV2"})
     public MessageService messageService() {
         return new MessageService() {
@@ -21,5 +27,6 @@ public class ProductConfig {
             }
         };
     }
+
 
 }

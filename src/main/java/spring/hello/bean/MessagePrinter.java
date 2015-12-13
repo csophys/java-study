@@ -1,7 +1,14 @@
 package spring.hello.bean;
 
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
+import spring.hello.event.MessageProduceEvent;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -19,13 +26,56 @@ public class MessagePrinter {
     @Resource
     Environment environment;
 
+    @Resource
+    ApplicationEventPublisher applicationEventPublisher;
+
+
 
     public void printMessage() {
         System.out.println("printMessage:" + messageService.getMessage());
-        System.out.println("active profile:" + environment.getActiveProfiles());
+        System.out.println("active profile:" + environment.getActiveProfiles()[0]);
         System.out.println("java home:" + environment.getProperty("JAVA_HOME"));
         System.out.println("name is:" + environment.getProperty("name"));
         System.out.println("day is:" + environment.getProperty("day"));
+        applicationEventPublisher.publishEvent(new MessageProduceEvent("hello event in message"));
+    }
+
+
+    @Bean
+    public ApplicationListener<MessageProduceEvent> getMessageProductEventA() {
+        return new ApplicationListener<MessageProduceEvent>() {
+            @Override
+            public void onApplicationEvent(MessageProduceEvent event) {
+                System.out.println("messageProduct event captured in A");
+            }
+        };
+    }
+
+    @Bean
+    public ApplicationListener<MessageProduceEvent> getMessageProductEventB() {
+        return new ApplicationListener<MessageProduceEvent>() {
+            @Override
+            public void onApplicationEvent(MessageProduceEvent event) {
+                System.out.println("messageProduct event captured in B");
+            }
+        };
+    }
+
+    @EventListener
+    public void getContextRefreshEventByAnnotation(ContextRefreshedEvent contextRefreshedEvent) {
+        System.out.println("contextRefreshedEvent event capture in Annotation method." + contextRefreshedEvent);
+    }
+
+    @EventListener
+    @Order(6)
+    public void getMessageProductByAnnotationC(MessageProduceEvent messageProduceEvent) {
+        System.out.println("messageProduct event capture in Annotation method C." + messageProduceEvent);
+    }
+
+    @EventListener
+    @Order(5)
+    public void getMessageProductByAnnotationD(MessageProduceEvent messageProduceEvent) {
+        System.out.println("messageProduct event capture in Annotation method D." + messageProduceEvent);
     }
 
     @PostConstruct
