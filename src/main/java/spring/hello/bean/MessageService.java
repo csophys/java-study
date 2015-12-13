@@ -1,4 +1,4 @@
-package spring.hello;
+package spring.hello.bean;
 
 /**
  * Created by csophys on 15/12/6.

@@ -1,21 +1,26 @@
 package spring.hello;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
+import spring.hello.bean.MessagePrinter;
+import spring.hello.bean.ProductConfig;
+import spring.hello.bean.QAConfig;
 
 /**
  * Created by csophys on 15/12/6.
  */
 
-@ComponentScan
 public class Application {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.getEnvironment().setActiveProfiles("product");
-        context.register(Application.class,QAConfig.class, ProductConfig.class);
+        context.register(QAConfig.class, ProductConfig.class);
         context.refresh();
 
+/*
+        System.out.println(context.getBean("messageService"));
+        System.out.println(context.getBean("productConfig"));
+*/
         MessagePrinter messagePrinter = context.getBean(MessagePrinter.class);
         messagePrinter.printMessage();
     }
