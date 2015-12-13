@@ -1,6 +1,6 @@
 # Spring Annotation 演示分享,4.0+
 
-##  @ComponentScan @Import
+##  @ComponentScan @Import @ImportResource
 bean扫描
 ##  @Bean @Component @Service @Repository @Controller @Configuration
 bean定义

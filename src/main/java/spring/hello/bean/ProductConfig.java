@@ -1,9 +1,6 @@
 package spring.hello.bean;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
 /**
  * Created by csophys on 15/12/10.
@@ -11,6 +8,8 @@ import org.springframework.context.annotation.Profile;
 @Profile("product")
 @ComponentScan
 //@Import({MessagePrinter.class})
+//@ImportResource
+@PropertySource("config.propertity")
 @Configuration
 public class ProductConfig {
     @Bean(name = {"messageServiceV1", "messageServiceV2"})
