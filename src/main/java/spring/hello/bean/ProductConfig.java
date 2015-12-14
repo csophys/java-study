@@ -3,6 +3,7 @@ package spring.hello.bean;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.*;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 /**
@@ -19,11 +20,18 @@ public class ProductConfig {
     ApplicationEventPublisher applicationEventPublisher;
 
     @Bean(name = {"messageServiceV1", "messageServiceV2"})
+    @DependsOn(value = "messagePrinter")
+    //@Scope("prototype")
     public MessageService messageService() {
         return new MessageService() {
             @Override
             public String getMessage() {
                 return "hello spring 4.2.3-Release in Product Envrironment";
+            }
+
+            @PostConstruct
+            private void init() {
+                System.out.println("message service OK");
             }
         };
     }

@@ -1,5 +1,6 @@
 package spring.hello.bean;
 
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
@@ -27,12 +28,17 @@ public class MessagePrinter {
     Environment environment;
 
     @Resource
+    ApplicationContext applicationContext;
+
+    @Resource
     ApplicationEventPublisher applicationEventPublisher;
 
 
 
     public void printMessage() {
+        System.out.println("当前的messageService为："+messageService);
         System.out.println("printMessage:" + messageService.getMessage());
+        System.out.println("当前的messageService为："+applicationContext.getBean(MessageService.class));
         System.out.println("active profile:" + environment.getActiveProfiles()[0]);
         System.out.println("java home:" + environment.getProperty("JAVA_HOME"));
         System.out.println("name is:" + environment.getProperty("name"));

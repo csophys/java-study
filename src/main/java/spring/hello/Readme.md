@@ -6,6 +6,8 @@ bean扫描
 ##  @Bean @Component @Service @Repository @Controller @Configuration
 bean定义
 
+##  @Scope @DependOn
+bean 定义附加
 ##  @PostConstruct @PreDestroy
 bean方法拦截
 
