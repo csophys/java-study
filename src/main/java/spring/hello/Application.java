@@ -12,6 +12,10 @@ import spring.hello.bean.QAConfig;
 public class Application {
 
     public static void main(String[] args) {
+        startContext();
+    }
+
+    public static void startContext() {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         context.getEnvironment().setActiveProfiles("product");
         context.register(QAConfig.class, ProductConfig.class);
