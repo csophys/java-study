@@ -25,6 +25,12 @@ public class NormalController {
         return "hello," + path + "," + pathReg;
     }
 
+    @RequestMapping(params = "param", headers = "content-type:text/html", consumes = "applcation/*", produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    public String params() {
+        return "hello,params";
+    }
+
     @RequestMapping("/html")
     public String htmlView() {
         return "normal";

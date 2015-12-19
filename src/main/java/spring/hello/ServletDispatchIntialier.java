@@ -23,8 +23,7 @@ public class ServletDispatchIntialier extends AbstractAnnotationConfigDispatcher
             rootAppContext.getEnvironment().setActiveProfiles("product");
             rootAppContext.register(configClasses);
             return rootAppContext;
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -33,6 +32,7 @@ public class ServletDispatchIntialier extends AbstractAnnotationConfigDispatcher
     protected Class<?>[] getServletConfigClasses() {
         return new Class<?>[0];
     }
+
 
 
     @Override

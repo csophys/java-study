@@ -3,7 +3,10 @@ package spring.hello.bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -14,10 +17,22 @@ import javax.annotation.Resource;
 @Import({QAConfig.class, ProductConfig.class})
 @EnableWebMvc
 @Configuration
-public class WebConfig {
+
+public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Resource
     Environment environment;
+
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/").addResourceLocations("/resources/**");
+    }
+
+    @Override
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
+    }
+
 
     @PostConstruct
     private void init() {
