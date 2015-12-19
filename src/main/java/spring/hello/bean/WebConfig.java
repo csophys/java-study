@@ -22,6 +22,9 @@ public class WebConfig {
     @PostConstruct
     private void init() {
         System.out.println(environment.getProperty("name"));
-//        System.out.println(environment.getActiveProfiles()[0]);
+        for (String profile : environment.getActiveProfiles()) {
+            System.out.println("current profile:" + profile);
+        }
+
     }
 }

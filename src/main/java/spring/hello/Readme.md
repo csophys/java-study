@@ -19,3 +19,8 @@ bean使用
 
 ##  @EventListener @Order(6)
 监听事件，publish block方法，order 决定顺序
+
+
+##  @EnableWebMvc
+
+##  @RequestMapping

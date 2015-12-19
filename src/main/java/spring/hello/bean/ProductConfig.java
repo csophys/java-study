@@ -10,10 +10,10 @@ import javax.annotation.Resource;
  * Created by csophys on 15/12/10.
  */
 @Profile("product")
-@ComponentScan
+@ComponentScan("spring.hello")
 //@Import({MessagePrinter.class})
 //@ImportResource
-@PropertySource("config.propertity")
+@PropertySource("classpath:config.propertity")
 @Configuration
 public class ProductConfig {
     @Resource
