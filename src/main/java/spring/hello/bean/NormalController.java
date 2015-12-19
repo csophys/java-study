@@ -18,7 +18,7 @@ public class NormalController {
         return "hello";
     }
 
-    @RequestMapping("/rest/{path}/**/{pathReg:\\d+}")
+    @RequestMapping({"/rest/{path}/**/{pathReg:\\d+}", "/rest/another/{path}/{pathReg}"})
     @ResponseBody
     public String normalCustomize(@PathVariable String path, @PathVariable("pathReg") String pathReg) {
         return "hello," + path + "," + pathReg;

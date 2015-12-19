@@ -23,4 +23,4 @@ bean使用
 
 ##  @EnableWebMvc
 
-##  @RequestMapping
+##  @RequestMapping @PathVariable
