@@ -1,6 +1,7 @@
 package spring.hello.bean;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -21,7 +22,9 @@ public class ViewController {
     }
 
     @RequestMapping("/ftl")
-    public String simpleFtl() {
+    public String simpleFtl(ModelMap modelMap) {
+        modelMap.addAttribute("model",new Model("csophys","男"));
         return "/hello";
     }
+
 }
