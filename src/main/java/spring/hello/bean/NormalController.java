@@ -1,10 +1,7 @@
 package spring.hello.bean;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by csophys on 15/12/19.
@@ -34,6 +31,18 @@ public class NormalController {
     @RequestMapping("/html")
     public String htmlView() {
         return "normal";
+    }
+
+    @RequestMapping("/requestParam")
+    @ResponseBody
+    public String requestParam(@RequestParam(value = "param1",defaultValue = "default") String param1) {
+        return "hello,param=" + param1;
+    }
+
+    @RequestMapping("cookieValue")
+    @ResponseBody
+    public String cookieValue(@CookieValue("ticket") String ticket){
+        return "cookie:"+ticket;
     }
 
 }

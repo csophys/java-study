@@ -24,3 +24,6 @@ bean使用
 ##  @EnableWebMvc
 
 ##  @RequestMapping @PathVariable
+
+##  @RequestParam @CookieValue
+方法参数绑定
