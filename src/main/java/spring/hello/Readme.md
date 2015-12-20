@@ -27,3 +27,6 @@ bean使用
 
 ##  @RequestParam @CookieValue
 方法参数绑定
+
+##  @RestController @ResponseBody
+restful api，response 直接返回数据

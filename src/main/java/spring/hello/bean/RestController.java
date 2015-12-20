@@ -1,6 +1,5 @@
 package spring.hello.bean;
 
-import lombok.Data;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -10,21 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/rest")
 public class RestController {
 
-
     @RequestMapping("/simple")
-    public Model simpleRest() {
+    public spring.hello.bean.Model simpleRest() {
         return new Model("csophys", "男");
-    }
-
-    @Data
-    static class Model {
-        private String name;
-
-        private String sex;
-
-        Model(String name, String sex) {
-            this.name = name;
-            this.sex = sex;
-        }
     }
 }
