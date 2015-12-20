@@ -23,7 +23,7 @@ public class ViewController {
 
     @RequestMapping("/ftl")
     public String simpleFtl(ModelMap modelMap) {
-        modelMap.addAttribute("model",new Model("csophys","男"));
+        modelMap.addAttribute("model", new Model("csophys", "男"));
         return "/hello";
     }
 
