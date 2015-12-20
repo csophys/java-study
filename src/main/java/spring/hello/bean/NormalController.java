@@ -30,19 +30,20 @@ public class NormalController {
 
     @RequestMapping("/html")
     public String htmlView() {
-        return "normal";
+        return "/normalTest.html";
     }
+
 
     @RequestMapping("/requestParam")
     @ResponseBody
-    public String requestParam(@RequestParam(value = "param1",defaultValue = "default") String param1) {
+    public String requestParam(@RequestParam(value = "param1", defaultValue = "default") String param1) {
         return "hello,param=" + param1;
     }
 
     @RequestMapping("cookieValue")
     @ResponseBody
-    public String cookieValue(@CookieValue("ticket") String ticket){
-        return "cookie:"+ticket;
+    public String cookieValue(@CookieValue("ticket") String ticket) {
+        return "cookie:" + ticket;
     }
 
 }
