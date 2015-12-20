@@ -21,7 +21,7 @@ public class ViewController {
         return "/jsp";
     }
 
-    @RequestMapping("/ftl")
+    @RequestMapping(value = "/ftl")
     public String simpleFtl(ModelMap modelMap) {
         modelMap.addAttribute("model", new Model("csophys", "男"));
         return "/hello";
