@@ -33,3 +33,9 @@ restful api，response 直接返回数据
 
 ##  @ModelAttribute @SessionAttributes
 model，session数据绑定，modelAttribute运行在controller 的前面. modelAttribute 绑定在方法参数中。能与initBind共用，自定义绑定形式
+
+
+
+##  @RunWith @ContextConfiguration @Transactional @ActiveProfiles @TestExecutionListeners
+
+##  @Rollback @BeforeTransaction @AfterTransaction @Commit
