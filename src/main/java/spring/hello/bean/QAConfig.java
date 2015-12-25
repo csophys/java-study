@@ -1,15 +1,12 @@
 package spring.hello.bean;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
 /**
  * Created by csophys on 15/12/10.
  */
 @Profile("dev")
-@ComponentScan
+@ComponentScan(value = "spring.hello", excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "spring.hello.bean.WebConfig"))
 @Configuration
 public class QAConfig {
 
