@@ -11,10 +11,20 @@
         </layout>
     </appender>
 
+    <appender name="hello" class="log4j.appender.HelloAppender">
+        <param name="namespace" value="csc-online-monitor"/>
+        <param name="topic" value="dialog"/>
+        <param name="enable" value="lion.someKey"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d: %-5p  %m%n"/>
+        </layout>
+    </appender>
+
     <!-- Root Logger -->
     <root>
         <level value="Debug"/>
-        <appender-ref ref="console"/>
+        <!--        <appender-ref ref="console"/>-->
+        <appender-ref ref="hello"/>
     </root>
 
 </log4j:configuration>
