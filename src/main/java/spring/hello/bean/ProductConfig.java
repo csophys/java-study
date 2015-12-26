@@ -1,5 +1,6 @@
 package spring.hello.bean;
 
+import lombok.extern.log4j.Log4j;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.annotation.*;
 
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
 //@ImportResource
 @PropertySource("classpath:config.propertity")
 @Configuration
+@Log4j
 public class ProductConfig {
     @Resource
     ApplicationEventPublisher applicationEventPublisher;
