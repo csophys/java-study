@@ -11,6 +11,5 @@ public class invokeClojure {
         require.invoke(Clojure.read("org.csophys.demo"));
         IFn plus1 = Clojure.var("org.csophys.demo", "hello");
         System.out.println(plus1.invoke("csophys ,now java can invoke clojure perfectly"));
-
     }
 }
