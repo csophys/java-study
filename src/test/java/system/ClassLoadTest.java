@@ -1,6 +1,10 @@
 package system;
 
 import org.junit.Test;
+import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+
+import java.io.IOException;
 
 /**
  * Created by csophys on 15/6/7.
@@ -40,4 +44,29 @@ public class ClassLoadTest {
         System.out.println(hashCode() + "父类：" + super.hashCode());
         System.out.println(this.getClass().hashCode());
     }
+
+
+    @Test
+    public  void loadClassInJar(){
+        try {
+            Class<?> x = this.getClass().getClassLoader().loadClass("org.springframework.beans.factory.xml.DefaultNamespaceHandlerResolver");
+            System.out.println(x);
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void getClassLoader(){
+        try {
+            Resource[] resources = new PathMatchingResourcePatternResolver().getResources("classpath*:/META-INF/*.txt");
+            for (Resource resource : resources) {
+                System.out.println(resource);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

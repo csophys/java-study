@@ -26,4 +26,8 @@ public class Application {
         MessagePrinter messagePrinter = context.getBean(MessagePrinter.class);
         messagePrinter.printMessage();
     }
+
+    public static void testForClj() {
+        System.out.println("hello");
+    }
 }
