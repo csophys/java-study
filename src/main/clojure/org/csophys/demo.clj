@@ -1,7 +1,4 @@
 (ns org.csophys.demo)
+(use 'org.csophys.fileUtils.fileSearch)
 
-(defn hello [x]
-  (println "hello," x))
-
-
-
+(println (search-files-in-directory #".*class" "/Users/csophys/Desktop"))
