@@ -1,4 +1,4 @@
-package spring.hello.bean;
+package spring.bean;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RestController {
 
     @RequestMapping("/simple")
-    public spring.hello.bean.Model simpleRest() {
+    public Model simpleRest() {
         return new Model("csophys", "男");
     }
 }

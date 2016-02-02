@@ -1,4 +1,4 @@
-package spring.hello.bean;
+package spring.bean;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

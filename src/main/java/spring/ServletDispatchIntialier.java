@@ -1,10 +1,11 @@
-package spring.hello;
+package spring;
 
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
-import spring.hello.bean.WebConfig;
+import spring.bean.WebConfig;
+import spring.bean.WebConfig;
 
 /**
  * Created by csophys on 15/12/18.

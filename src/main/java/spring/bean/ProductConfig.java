@@ -1,4 +1,4 @@
-package spring.hello.bean;
+package spring.bean;
 
 import lombok.extern.log4j.Log4j;
 import org.springframework.beans.BeansException;

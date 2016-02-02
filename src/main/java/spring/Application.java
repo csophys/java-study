@@ -1,10 +1,10 @@
-package spring.hello;
+package spring;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import spring.hello.bean.MessagePrinter;
-import spring.hello.bean.MyBeanFactoryPostProcessBeforeRefresh;
-import spring.hello.bean.ProductConfig;
-import spring.hello.bean.QAConfig;
+import spring.bean.MessagePrinter;
+import spring.bean.MyBeanFactoryPostProcessBeforeRefresh;
+import spring.bean.ProductConfig;
+import spring.bean.QAConfig;
 
 /**
  * Created by csophys on 15/12/6.

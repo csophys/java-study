@@ -1,4 +1,4 @@
-package spring.hello.bean;
+package spring.bean;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
@@ -9,7 +9,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
-import spring.hello.event.MessageProduceEvent;
+import spring.event.MessageProduceEvent;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
