@@ -1,14 +1,10 @@
-(ns org.csophys.demo)
-(use 'org.csophys.fileUtils.fileSearch)
+(ns org.csophys.demo
+  (:require [org.csophys.demo2 :as demo2]))
 
-(println (search-files-in-directory ".*png" "/Users/csophys/Desktop"))
+(defn good? [param1]
+  (+ 3 2)
+  )
 
-(comment (reverse
-           (list
-             (+ 1
-                (- 4 2))
-             3)))
+(good? 1)
 
-
-
-
+(good? 2)
