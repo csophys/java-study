@@ -13,6 +13,12 @@
           <file>file://$MODULE_DIR$/src/main/java/spring/hello/bean/WebConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/resources/application.xml</file>
         </fileset>
+        <fileset id="fileset3" name="Spring Application Context (3)" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/application.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/spring/bean/ProductConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/spring/bean/QAConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/spring/bean/WebConfig.java</file>
+        </fileset>
       </configuration>
     </facet>
     <facet type="web" name="Web">
