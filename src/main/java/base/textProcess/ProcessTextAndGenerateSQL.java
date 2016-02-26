@@ -54,6 +54,7 @@ public class ProcessTextAndGenerateSQL {
             if (!caseTypeList.contains(caseType)) {
                 caseType.setId(DB_START_ID);
                 if (currentColumn + 1 < column_count) {
+                    //++ 在前在后有区别
                     caseTypes[currentColumn + 1][i].setParentId(++DB_START_ID);
                 }
                 caseTypeList.add(caseType);
