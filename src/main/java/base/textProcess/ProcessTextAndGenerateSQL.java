@@ -15,6 +15,7 @@ public class ProcessTextAndGenerateSQL {
 
     public static final int COLUMN_COUNT_MAX = 10;
     public static final int ROWS_COUNT_MAX = 60000;
+    public static int DB_START_ID = 1000;
 
     public static void main(String[] args) throws Exception {
         FileReader fileReader = new FileReader("/Users/csophys/Desktop/1.csv");
@@ -35,10 +36,9 @@ public class ProcessTextAndGenerateSQL {
             index++;
             rows_count = index;
         }
-        int currentId = 1000;
         //2. 生成sql
         for (int i = 0; i < columns_count; i++) {
-            fileWriter.append(generateSQL(caseTypes, rows_count, currentId, i, columns_count, 11));
+            fileWriter.append(generateSQL(caseTypes, rows_count, i, columns_count, 11));
         }
 
         //3. 保存到file
@@ -46,20 +46,25 @@ public class ProcessTextAndGenerateSQL {
         fileWriter.close();
     }
 
-    private static String generateSQL(CaseType[][] caseTypes, int rows_count, int currentId, int currentColumn, int column_count, Integer departmentId) {
+    private static String generateSQL(CaseType[][] caseTypes, int rows_count, int currentColumn, int column_count, Integer departmentId) {
         List<CaseType> caseTypeList = new ArrayList<CaseType>();
         StringBuffer sqlResult = new StringBuffer();
         for (int i = 0; i < rows_count; i++) {
             CaseType caseType = caseTypes[currentColumn][i];
             if (!caseTypeList.contains(caseType)) {
-                caseType.setId(currentId);
+                caseType.setId(DB_START_ID);
                 if (currentColumn + 1 < column_count) {
-                    caseTypes[currentColumn + 1][i].setParentId(currentId++);
+                    caseTypes[currentColumn + 1][i].setParentId(++DB_START_ID);
                 }
                 caseTypeList.add(caseType);
                 sqlResult.append("INSERT INTO CSC_CaseType" +
                         "        (ID,AddTime, TypeCode, TypeValue, Rank, parentID, ParentTypeCode, departmentID) VALUES " +
                         "        (" + caseType.getId() + ",now()," + caseType.getId() + "," + caseType.getTypeValue() + ",100," + caseType.getParentId() + "," + caseType.getParentId() + "," + departmentId + ");").append("\n");
+            }else{
+                caseType.setId(DB_START_ID);
+                if (currentColumn + 1 < column_count) {
+                    caseTypes[currentColumn + 1][i].setParentId(DB_START_ID);
+                }
             }
         }
         return sqlResult.toString();
