@@ -137,7 +137,17 @@
             <artifactId>c3p0</artifactId>
             <version>${c3p0.version}</version>
         </dependency>
+
+        <!--配置相关-->
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools</artifactId>
+            <version>6.3.0.Final</version>
+            <type>pom</type>
+        </dependency>
     </dependencies>
+
+
 
     <properties>
         <spring.version>4.2.3.RELEASE</spring.version>
