@@ -22,7 +22,7 @@
 
     <!-- Root Logger -->
     <root>
-        <level value="Debug"/>
+        <level value="ERROR"/>
         <!--        <appender-ref ref="console"/>-->
         <appender-ref ref="hello"/>
     </root>

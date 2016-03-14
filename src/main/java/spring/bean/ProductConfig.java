@@ -28,7 +28,6 @@ public class ProductConfig {
     ApplicationEventPublisher applicationEventPublisher;
 
     @Bean(name = {"messageServiceV1", "messageServiceV2"})
-    @DependsOn(value = "messagePrinter")
     //@Scope("prototype")
     public MessageService messageService() {
         return new MessageService() {
