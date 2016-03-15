@@ -17,9 +17,10 @@ import javax.annotation.Resource;
  * Created by csophys on 15/12/10.
  */
 @Profile("product")
-@ComponentScan(value = "spring.hello", excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "spring.hello.bean.WebConfig"))
+@ComponentScan({"spring.bean","spring.validate"})
+//@ComponentScan(value = "spring.hello", excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "spring.hello.bean.WebConfig"))
 //@Import({MessagePrinter.class})
-/*@ImportResource("classpath:application.xml")*/
+/*@ImportResource("classpath:application.xml")*///
 @PropertySource("classpath:config.propertity")
 @Configuration
 @Log4j

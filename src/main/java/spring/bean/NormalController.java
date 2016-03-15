@@ -3,6 +3,8 @@ package spring.bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
+
 /**
  * Created by csophys on 15/12/19.
  */
@@ -46,4 +48,10 @@ public class NormalController {
         return "cookie:" + ticket;
     }
 
+
+
+    @PostConstruct
+    public void init(){
+        System.out.println("init");
+    }
 }

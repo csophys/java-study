@@ -6,7 +6,7 @@ import org.springframework.context.annotation.*;
  * Created by csophys on 15/12/10.
  */
 @Profile("dev")
-@ComponentScan(value = "spring.hello", excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "spring.hello.bean.WebConfig"))
+//@ComponentScan(value = "spring.hello", excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "spring.hello.bean.WebConfig"))
 @Configuration
 public class QAConfig {
 
