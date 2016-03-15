@@ -4,10 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.core.env.Environment;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer;
 import org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver;
 
@@ -18,11 +15,23 @@ import java.util.Properties;
 /**
  * Created by csophys on 15/12/15.
  */
+
+
+/*
+import 其他bean
+*/
 @Import({QAConfig.class, ProductConfig.class})
 /*@ImportResource("classpath:application.xml")*/
-@EnableWebMvc
-@Configuration
 
+/*
+启用spring mvc配置
+*/
+@EnableWebMvc
+
+/*
+Component的子类，代表配置类
+*/
+@Configuration
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Resource
@@ -34,15 +43,13 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+        configurer.enable();
     }
 
-/*
     @Override
-    public void configureViewResolvers(ViewResolverRegistry registry) {
-        registry.jsp("/resources/pages/", ".jsp");
+    public void addViewControllers(ViewControllerRegistry registry) {
     }
-*/
 
     @Bean
     public FreeMarkerViewResolver freeMarkerViewResolver() {

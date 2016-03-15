@@ -16,17 +16,30 @@ import javax.annotation.Resource;
 /**
  * Created by csophys on 15/12/10.
  */
+
+//profile 配置
 @Profile("product")
+
+//package scan。默认为当前包，可以通过exclude设置Filter
 @ComponentScan({"spring.bean","spring.validate"})
 //@ComponentScan(value = "spring.hello", excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "spring.hello.bean.WebConfig"))
+
 //@Import({MessagePrinter.class})
-/*@ImportResource("classpath:application.xml")*///
+//@ImportResource("classpath:application.xml")
+
+//导入其他配置文件
 @PropertySource("classpath:config.propertity")
-@Configuration
+
+//lombok 语法糖
 @Log4j
+
+@Configuration
 public class ProductConfig {
+
+    // spring内置的观察者模式
     @Resource
     ApplicationEventPublisher applicationEventPublisher;
+
 
     @Bean(name = {"messageServiceV1", "messageServiceV2"})
     //@Scope("prototype")
@@ -44,6 +57,7 @@ public class ProductConfig {
         };
     }
 
+    //BeanFactoryPostProcessor
     @Bean
     public BeanFactoryPostProcessor beanAnnotationPostProcess() {
         return new BeanFactoryPostProcessor() {
@@ -54,6 +68,7 @@ public class ProductConfig {
         };
     }
 
+    //BeanDefinitionRegistryPostProcessor
     @Bean
     public BeanDefinitionRegistryPostProcessor beanAnnotationRegistryPostProcess() {
         return new BeanDefinitionRegistryPostProcessor() {
@@ -70,6 +85,7 @@ public class ProductConfig {
     }
 
 
+    //BeanPostProcessor
     @Bean
     public BeanPostProcessor beanAnnotationPostProcessor() {
         return new BeanPostProcessor() {

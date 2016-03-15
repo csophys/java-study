@@ -16,6 +16,11 @@ public class ServletDispatchIntialier extends AbstractAnnotationConfigDispatcher
         return new Class<?>[]{WebConfig.class};
     }
 
+
+
+/*
+    spring 容器启动的时候配置信息
+*/
     @Override
     protected WebApplicationContext createRootApplicationContext() {
         Class<?>[] configClasses = getRootConfigClasses();
