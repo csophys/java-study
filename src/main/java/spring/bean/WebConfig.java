@@ -37,6 +37,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     @Resource
     Environment environment;
 
+
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/**").addResourceLocations("/");
@@ -46,6 +47,7 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
+
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
