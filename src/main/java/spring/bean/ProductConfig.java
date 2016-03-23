@@ -33,6 +33,7 @@ import javax.annotation.Resource;
 //lombok 语法糖
 @Log4j
 
+
 @Configuration
 public class ProductConfig {
 
