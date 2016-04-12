@@ -8,8 +8,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.Date;
-
 /**
  * Created by csophys on 16/4/10.
  */
@@ -66,7 +64,6 @@ public class HttpCache {
         HttpGet get = new HttpGet("https://www.baidu.com/img/bd_logo1.png");
         get.addHeader("If-None-Match", httpResponse.getFirstHeader("ETag").getValue());
 
-        System.out.println(new Date());
 
         Assert.assertTrue(client.execute(get).getStatusLine().getStatusCode() == 304);
 
@@ -75,6 +72,11 @@ public class HttpCache {
         get.addHeader("If-Modified-Since", "Wed, 03 Sep 2015 10:00:27 GMT");
         Assert.assertTrue(client.execute(get).getStatusLine().getStatusCode() == 304);
 
-
+        //如果header中同时含有两者，一般是并且的关系，同时需要满足
     }
+
+
+/*
+    创建的HTTP Header
+*/
 }
