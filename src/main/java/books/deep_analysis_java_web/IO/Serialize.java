@@ -10,6 +10,7 @@ import java.io.*;
 public class Serialize implements Serializable {
 
     public String field = "field";
+    public int num = 0X12;
 
     public String getField(){
         return field;
@@ -40,5 +41,6 @@ public class Serialize implements Serializable {
 
         Assert.assertEquals(o.getField(),"field");
         System.out.println("成功反序列化");
+
     }
 }
