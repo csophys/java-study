@@ -16,6 +16,10 @@ public class AdapterDesignPattern {
         FileOutputStream fileOutputStream = new FileOutputStream(ioAdapter);
         ioAdapter.createNewFile();
         fileOutputStream.write('A');
+        byte[] bytes = new byte[2];
+        bytes[0] = 97;
+        bytes[1] = 49;
+        fileOutputStream.write(bytes);
 
         //输出字节流适配成 输出的字符流
         OutputStreamWriter outputStreamWriterDefault = new OutputStreamWriter(fileOutputStream);
@@ -24,7 +28,7 @@ public class AdapterDesignPattern {
         outputStreamWriterDefault.flush();
 
         //输出字节流适配成 输出的字符流,适配过程需要指定编码格式
-        OutputStreamWriter outputStreamWriterEncode = new OutputStreamWriter(fileOutputStream,"GBK");
+        OutputStreamWriter outputStreamWriterEncode = new OutputStreamWriter(fileOutputStream, "GBK");
         outputStreamWriterEncode.write("我也是中文");
         outputStreamWriterEncode.flush();
     }
