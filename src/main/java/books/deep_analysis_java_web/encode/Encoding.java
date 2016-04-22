@@ -52,34 +52,42 @@ public class Encoding {
         System.out.println("------用utf8编码------");
         byte[] bytesWithUTF8 = str.getBytes("UTF-8");
 
-        System.out.println("用utf8解码:"+new String(bytesWithUTF8, "UTF-8"));
-        System.out.println("用utf16解码:"+new String(bytesWithUTF8, "UTF-16"));
-        System.out.println("用GBK解码:"+new String(bytesWithUTF8, "GBK"));
-        System.out.println("用ISO-8859-1解码:"+new String(bytesWithUTF8, "ISO-8859-1"));
+        System.out.println("用utf8解码:" + new String(bytesWithUTF8, "UTF-8"));
+        System.out.println("用utf16解码:" + new String(bytesWithUTF8, "UTF-16"));
+        System.out.println("用GBK解码:" + new String(bytesWithUTF8, "GBK"));
+        System.out.println("用ISO-8859-1解码:" + new String(bytesWithUTF8, "ISO-8859-1"));
 
 
         System.out.println("------用ISO-8859-1编码------");
         byte[] bytesWithISO = str.getBytes("ISO-8859-1");
-        System.out.println("用utf8解码:"+new String(bytesWithISO, "UTF-8"));
-        System.out.println("用utf16解码:"+new String(bytesWithISO, "UTF-16"));
-        System.out.println("用GBK解码:"+new String(bytesWithISO, "GBK"));
-        System.out.println("用ISO-8859-1解码:"+new String(bytesWithISO, "ISO-8859-1"));
+        System.out.println("用utf8解码:" + new String(bytesWithISO, "UTF-8"));
+        System.out.println("用utf16解码:" + new String(bytesWithISO, "UTF-16"));
+        System.out.println("用GBK解码:" + new String(bytesWithISO, "GBK"));
+        System.out.println("用ISO-8859-1解码:" + new String(bytesWithISO, "ISO-8859-1"));
 
 
         System.out.println("------用GBK编码------");
         byte[] bytesWithGBK = str.getBytes("GBK");
-        System.out.println("用utf8解码:"+new String(bytesWithGBK, "UTF-8"));
-        System.out.println("用utf16解码:"+new String(bytesWithGBK, "UTF-16"));
-        System.out.println("用GBK解码:"+new String(bytesWithGBK, "GBK"));
-        System.out.println("用ISO-8859-1解码:"+new String(bytesWithGBK, "ISO-8859-1"));
+        System.out.println("用utf8解码:" + new String(bytesWithGBK, "UTF-8"));
+        System.out.println("用utf16解码:" + new String(bytesWithGBK, "UTF-16"));
+        System.out.println("用GBK解码:" + new String(bytesWithGBK, "GBK"));
+        System.out.println("用ISO-8859-1解码:" + new String(bytesWithGBK, "ISO-8859-1"));
 
 
         System.out.println("------用UTF-16编码------");
         byte[] bytesWithUTF16 = str.getBytes("UTF-16");
-        System.out.println("用utf8解码:"+new String(bytesWithUTF16, "UTF-8"));
-        System.out.println("用utf16解码:"+new String(bytesWithUTF16, "UTF-16"));
-        System.out.println("用GBK解码:"+new String(bytesWithUTF16, "GBK"));
-        System.out.println("用ISO-8859-1解码:"+new String(bytesWithUTF16, "ISO-8859-1"));
+        System.out.println("用utf8解码:" + new String(bytesWithUTF16, "UTF-8"));
+        System.out.println("用utf16解码:" + new String(bytesWithUTF16, "UTF-16"));
+        System.out.println("用GBK解码:" + new String(bytesWithUTF16, "GBK"));
+        System.out.println("用ISO-8859-1解码:" + new String(bytesWithUTF16, "ISO-8859-1"));
+    }
 
+    @Test
+    public void webRequestMixCode() {
+        //demo
+
+        //get , post
+
+        //tomcat
     }
 }
