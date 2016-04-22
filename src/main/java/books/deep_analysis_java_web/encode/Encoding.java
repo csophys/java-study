@@ -1,0 +1,85 @@
+package books.deep_analysis_java_web.encode;
+
+import org.junit.Test;
+
+import java.io.UnsupportedEncodingException;
+
+/**
+ * Created by csophys on 16/4/22.
+ */
+public class Encoding {
+
+    // 1. why encoding?,bytes to char
+
+    // 2. encoding ASCII ISO-8859-1 GB2312 GBK GB18030  UTF-16 UTF-8
+
+    // 3. UTF-8 边长字节详解 & demo
+
+    // 4. java string 内存中的存储统一为Unicode UTF-16
+
+    // 5. byte to char,char to byte encode and decode
+
+    // 6. IO,SocketIO,memory
+
+    @Test
+    public void memoryStringEncode() throws UnsupportedEncodingException {
+
+        //demo1 encoding
+        String str = "abc我是中文"; //java内存中是 unicode 编码形式
+        System.out.println(str.getBytes("UTF-8").length);
+        //书中有创建时序图，【截图】
+        System.out.println(str.getBytes("UTF-16").length);
+        System.out.println(str.getBytes("GBK").length);
+
+        //demo2 decoding
+        byte[] bytes = str.getBytes("UTF-8");
+        System.out.println(new String(bytes, "UTF-8"));
+    }
+
+
+    @Test
+    public void fileAndSocketIO() {
+        //见IO 一节
+    }
+
+    // 7. 乱码分析
+
+    @Test
+    public void mixCode() throws UnsupportedEncodingException {
+        String str = "hello，我包含中文";
+
+        //先用UTF-8 encode
+        System.out.println("------用utf8编码------");
+        byte[] bytesWithUTF8 = str.getBytes("UTF-8");
+
+        System.out.println("用utf8解码:"+new String(bytesWithUTF8, "UTF-8"));
+        System.out.println("用utf16解码:"+new String(bytesWithUTF8, "UTF-16"));
+        System.out.println("用GBK解码:"+new String(bytesWithUTF8, "GBK"));
+        System.out.println("用ISO-8859-1解码:"+new String(bytesWithUTF8, "ISO-8859-1"));
+
+
+        System.out.println("------用ISO-8859-1编码------");
+        byte[] bytesWithISO = str.getBytes("ISO-8859-1");
+        System.out.println("用utf8解码:"+new String(bytesWithISO, "UTF-8"));
+        System.out.println("用utf16解码:"+new String(bytesWithISO, "UTF-16"));
+        System.out.println("用GBK解码:"+new String(bytesWithISO, "GBK"));
+        System.out.println("用ISO-8859-1解码:"+new String(bytesWithISO, "ISO-8859-1"));
+
+
+        System.out.println("------用GBK编码------");
+        byte[] bytesWithGBK = str.getBytes("GBK");
+        System.out.println("用utf8解码:"+new String(bytesWithGBK, "UTF-8"));
+        System.out.println("用utf16解码:"+new String(bytesWithGBK, "UTF-16"));
+        System.out.println("用GBK解码:"+new String(bytesWithGBK, "GBK"));
+        System.out.println("用ISO-8859-1解码:"+new String(bytesWithGBK, "ISO-8859-1"));
+
+
+        System.out.println("------用UTF-16编码------");
+        byte[] bytesWithUTF16 = str.getBytes("UTF-16");
+        System.out.println("用utf8解码:"+new String(bytesWithUTF16, "UTF-8"));
+        System.out.println("用utf16解码:"+new String(bytesWithUTF16, "UTF-16"));
+        System.out.println("用GBK解码:"+new String(bytesWithUTF16, "GBK"));
+        System.out.println("用ISO-8859-1解码:"+new String(bytesWithUTF16, "ISO-8859-1"));
+
+    }
+}
