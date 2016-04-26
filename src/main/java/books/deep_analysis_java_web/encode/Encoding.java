@@ -99,10 +99,19 @@ public class Encoding {
         //UTF-8 编码
         byte[] bytes = str.getBytes("GBK");
 
-        //UTF-8 解码
+        //UTF-8 解码 GBK编码，UTF-8 解码后的形式一般如：��Աһ��
         System.out.println(new String(bytes));
 
         //GBK 解码
         System.out.println(new String(bytes,"GBK"));
+
+
+        //UTF8 编码
+        byte[] utf8bytes = str.getBytes();
+
+        //GBK 解码   UTF8编码，GBK 解码后的形式一般如: 浼氬憳涓�嚎
+        System.out.println(new String(utf8bytes, "GBK"));
     }
+
+    // genesys sdk 乱码问题
 }
