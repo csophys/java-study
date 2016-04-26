@@ -84,10 +84,25 @@ public class Encoding {
 
     @Test
     public void webRequestMixCode() {
+        //online read
+
         //demo
 
         //get , post
 
         //tomcat
+    }
+
+    @Test
+    public void encodeTest() throws UnsupportedEncodingException {
+        String str= "会员一线";
+        //UTF-8 编码
+        byte[] bytes = str.getBytes("GBK");
+
+        //UTF-8 解码
+        System.out.println(new String(bytes));
+
+        //GBK 解码
+        System.out.println(new String(bytes,"GBK"));
     }
 }
