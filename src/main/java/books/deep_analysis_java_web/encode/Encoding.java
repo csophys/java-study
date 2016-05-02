@@ -3,6 +3,7 @@ package books.deep_analysis_java_web.encode;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 
 /**
  * Created by csophys on 16/4/22.
@@ -86,6 +87,8 @@ public class Encoding {
     public void webRequestMixCode() {
         //online read
 
+        //http://www.dianping.com/kefu/servlet/陈胜?name=陈胜  path&query UTF-8
+
         //demo
 
         //get , post
@@ -96,6 +99,9 @@ public class Encoding {
     @Test
     public void encodeTest() throws UnsupportedEncodingException {
         String str= "会员一线";
+
+        System.out.println(System.getProperty("file.encoding"));
+        System.out.println("系统默认编码:"+Charset.defaultCharset().name());
         //UTF-8 编码
         byte[] bytes = str.getBytes("GBK");
 
@@ -111,7 +117,14 @@ public class Encoding {
 
         //GBK 解码   UTF8编码，GBK 解码后的形式一般如: 浼氬憳涓�嚎
         System.out.println(new String(utf8bytes, "GBK"));
+
     }
 
-    // genesys sdk 乱码问题
+    //使用场景： genesys sdk 乱码问题
+
+    @Test
+    public  void testJavaChar(){
+        String test = "a";
+
+    }
 }
