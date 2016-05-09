@@ -93,17 +93,19 @@ public class Encoding {
 
         //get , post
 
+        //ajax,ajax请求的编码默认与浏览器有关
+
         //tomcat
     }
 
     @Test
     public void encodeTest() throws UnsupportedEncodingException {
-        String str= "会员一线";
+        String str= "abc会员一线def%";
 
         System.out.println(System.getProperty("file.encoding"));
         System.out.println("系统默认编码:"+Charset.defaultCharset().name());
         //UTF-8 编码
-        byte[] bytes = str.getBytes("GBK");
+        byte[] bytes = str.getBytes("UTF-8");
 
         //UTF-8 解码 GBK编码，UTF-8 解码后的形式一般如：��Աһ��
         System.out.println(new String(bytes));
