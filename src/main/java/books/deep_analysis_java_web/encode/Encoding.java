@@ -2,7 +2,8 @@ package books.deep_analysis_java_web.encode;
 
 import org.junit.Test;
 
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 
 /**
@@ -100,10 +101,10 @@ public class Encoding {
 
     @Test
     public void encodeTest() throws UnsupportedEncodingException {
-        String str= "abc会员一线def%";
+        String str = "abc会员一线def%";
 
         System.out.println(System.getProperty("file.encoding"));
-        System.out.println("系统默认编码:"+Charset.defaultCharset().name());
+        System.out.println("系统默认编码:" + Charset.defaultCharset().name());
         //UTF-8 编码
         byte[] bytes = str.getBytes("UTF-8");
 
@@ -111,7 +112,7 @@ public class Encoding {
         System.out.println(new String(bytes));
 
         //GBK 解码
-        System.out.println(new String(bytes,"GBK"));
+        System.out.println(new String(bytes, "GBK"));
 
 
         //UTF8 编码
@@ -124,8 +125,73 @@ public class Encoding {
 
     //使用场景： genesys sdk 乱码问题
 
+
     @Test
-    public  void testJavaChar(){
+    public void memoryChar() throws UnsupportedEncodingException {
+        // 内存中的字符占用的字节数验证，内存字符使用的是Unicode UTF-16编码
+        String chars=
+                "hello，新美大客服平台组";
+        ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+        ByteBuffer b=null;
+        for(int i=0;i<chars.length();i++){
+            b = byteBuffer.putChar(chars.charAt(i));
+        }
+        System.out.println(b);
+
+        //中文的内存编码方式
+        //ISO-8859-1编码
+
+        getEncodingBytes(chars, "ISO-8859-1");
+        getEncodingBytes(chars,  "GB2312");
+        getEncodingBytes(chars,  "UNICODE");
+        getEncodingBytes(chars,  "UTF-16");
+    }
+
+    @Test
+    public  void encodeAndDecodeStr() throws UnsupportedEncodingException{
+        String chars = "hello,新美大客服平台组";
+        String s = new String(chars.getBytes("UTF-8"), "GB2312");
+        System.out.println(s);
+    }
+
+    private void getEncodingBytes(String chars, String charsetName) throws UnsupportedEncodingException {
+        StringBuffer stringBuffer = new StringBuffer("");
+
+        for (byte b1 :chars.getBytes(charsetName)){
+            stringBuffer.append(Integer.toHexString(b1));
+        }
+        System.out.println(charsetName+":"+stringBuffer);
+    }
+
+    @Test
+    public void calculateChars() throws IOException {
+        // 通过fileReader
+        FileInputStream fileInputStream = new FileInputStream("char");
+        int read;
+        StringBuffer bytes = new StringBuffer("");
+        while ((read = fileInputStream.read()) != -1) {
+            bytes.append(Integer.toHexString(read));
+        }
+        System.out.println(bytes);
+        //原生的reader
+        soutDecoderStr("ASCII");
+        soutDecoderStr("ISO-8859-1");
+        soutDecoderStr("GB2312");
+        soutDecoderStr("GBK");
+        soutDecoderStr("GB18030");
+        soutDecoderStr("UTF-8");
+        soutDecoderStr("UTF-16");
+    }
+
+    private void soutDecoderStr(String charsetName) throws IOException {
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream("char"), charsetName);
+        BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+        String chars = bufferedReader.readLine();
+        System.out.println(charsetName + ":" + chars);
+    }
+
+    @Test
+    public void testJavaChar() {
         String test = "a";
 
     }
