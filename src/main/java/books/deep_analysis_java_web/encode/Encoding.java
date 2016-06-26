@@ -24,41 +24,38 @@ public class Encoding {
     // 6. IO,SocketIO,memory
 
     @Test
-    public void memoryStringEncode() throws UnsupportedEncodingException {
+    public void memoryStringEncodeLength() throws UnsupportedEncodingException {
 
-        //demo1 encoding
-        String str = "abc我是中文"; //java内存中是 unicode 编码形式
+        String str = "hello新美大客服平台组";
         System.out.println(str.getBytes("UTF-8").length);
-        //书中有创建时序图，【截图】
         System.out.println(str.getBytes("UTF-16").length);
         System.out.println(str.getBytes("GBK").length);
 
-        //demo2 decoding
-        byte[] bytes = str.getBytes("UTF-8");
-        System.out.println(new String(bytes, "UTF-8"));
     }
-
 
     @Test
     public void fileAndSocketIO() {
         //见IO 一节
     }
 
-    // 7. 乱码分析
-
+    // 7. 内存中编解码,分析.
     @Test
-    public void mixCode() throws UnsupportedEncodingException {
-        String str = "hello，我包含中文";
+    public void memoryEncodeAndDecodeStr() throws UnsupportedEncodingException {
+        String str = "hello新美大客服平台组";
 
-        //先用UTF-8 encode
+        System.out.println("------默认编码------");
+        byte[] bytesWithDefault = str.getBytes();
+        System.out.println("用utf8解码:" + new String(bytesWithDefault, "UTF-8"));
+        System.out.println("用utf16解码:" + new String(bytesWithDefault, "UTF-16"));
+        System.out.println("用GBK解码:" + new String(bytesWithDefault, "GBK"));
+        System.out.println("用ISO-8859-1解码:" + new String(bytesWithDefault, "ISO-8859-1"));
+
         System.out.println("------用utf8编码------");
         byte[] bytesWithUTF8 = str.getBytes("UTF-8");
-
         System.out.println("用utf8解码:" + new String(bytesWithUTF8, "UTF-8"));
         System.out.println("用utf16解码:" + new String(bytesWithUTF8, "UTF-16"));
         System.out.println("用GBK解码:" + new String(bytesWithUTF8, "GBK"));
         System.out.println("用ISO-8859-1解码:" + new String(bytesWithUTF8, "ISO-8859-1"));
-
 
         System.out.println("------用ISO-8859-1编码------");
         byte[] bytesWithISO = str.getBytes("ISO-8859-1");
@@ -67,7 +64,6 @@ public class Encoding {
         System.out.println("用GBK解码:" + new String(bytesWithISO, "GBK"));
         System.out.println("用ISO-8859-1解码:" + new String(bytesWithISO, "ISO-8859-1"));
 
-
         System.out.println("------用GBK编码------");
         byte[] bytesWithGBK = str.getBytes("GBK");
         System.out.println("用utf8解码:" + new String(bytesWithGBK, "UTF-8"));
@@ -75,10 +71,9 @@ public class Encoding {
         System.out.println("用GBK解码:" + new String(bytesWithGBK, "GBK"));
         System.out.println("用ISO-8859-1解码:" + new String(bytesWithGBK, "ISO-8859-1"));
 
-
         System.out.println("------用UTF-16编码------");
         byte[] bytesWithUTF16 = str.getBytes("UTF-16");
-        System.out.println("用utf8解码:" + new String(bytesWithUTF16, "UTF-8"));
+        System.out.println("用utf8解码:"+new String(bytesWithUTF16, "UTF-8"));
         System.out.println("用utf16解码:" + new String(bytesWithUTF16, "UTF-16"));
         System.out.println("用GBK解码:" + new String(bytesWithUTF16, "GBK"));
         System.out.println("用ISO-8859-1解码:" + new String(bytesWithUTF16, "ISO-8859-1"));
@@ -137,13 +132,10 @@ public class Encoding {
             b = byteBuffer.putChar(chars.charAt(i));
         }
         System.out.println(b);
-
         //中文的内存编码方式
         //ISO-8859-1编码
-
         getEncodingBytes(chars, "ISO-8859-1");
         getEncodingBytes(chars,  "GB2312");
-        getEncodingBytes(chars,  "UNICODE");
         getEncodingBytes(chars,  "UTF-16");
     }
 
@@ -184,15 +176,31 @@ public class Encoding {
     }
 
     private void soutDecoderStr(String charsetName) throws IOException {
-        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream("char"), charsetName);
+
+        //字符文件输入流
+        InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream("char"), "UTF-8");
+
+        //字符文件输出流
+        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(new FileOutputStream("char"), "GBK");
+
+
+        System.out.println(outputStreamWriter);
         BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
         String chars = bufferedReader.readLine();
         System.out.println(charsetName + ":" + chars);
+
+
     }
 
     @Test
     public void testJavaChar() {
         String test = "a";
 
+    }
+
+    @Test
+    public void testIntToHex(){
+        int a = -2;
+        System.out.println(Integer.toHexString(a));
     }
 }
