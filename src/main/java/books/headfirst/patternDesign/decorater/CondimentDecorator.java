@@ -1,4 +1,4 @@
-package books.headfirst.patternDesign.derector;
+package books.headfirst.patternDesign.decorater;
 
 /**
  * Created by csophys on 16/6/29.

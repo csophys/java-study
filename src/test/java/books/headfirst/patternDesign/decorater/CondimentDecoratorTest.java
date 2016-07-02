@@ -1,4 +1,4 @@
-package books.headfirst.patternDesign.derector;
+package books.headfirst.patternDesign.decorater;
 
 import org.junit.Test;
 
