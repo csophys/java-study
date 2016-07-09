@@ -1,4 +1,4 @@
-package books.headfirst.patternDesign.Adapter;
+package books.headfirst.patternDesign.adapter;
 
 /**
  * Created by csophys on 16/7/9.

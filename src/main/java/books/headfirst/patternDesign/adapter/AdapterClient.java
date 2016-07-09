@@ -1,4 +1,7 @@
-package books.headfirst.patternDesign.Adapter;
+import books.headfirst.patternDesign.adapter.Adaptee;
+import books.headfirst.patternDesign.adapter.AdapteeImpl;
+import books.headfirst.patternDesign.adapter.Target;
+import books.headfirst.patternDesign.adapter.TargetAdapter;
 
 /**
  * Created by csophys on 16/7/9.
