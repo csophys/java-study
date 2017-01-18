@@ -5,6 +5,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
@@ -20,7 +21,7 @@ import static org.mockito.Mockito.when;
  * Created by csophys on 2017/1/18.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:datasource.xml")
+@ContextConfiguration({"classpath:datasource.xml", "classpath:beanForSpringMock.xml"})
 public class MockWithSpring {
 
     @Resource
@@ -36,6 +37,13 @@ public class MockWithSpring {
     @Resource
     MyDataSource myDataSource3;
 
+    @InjectMocks
+    @Resource
+    ParentBean parentBean;
+
+    @Spy
+    @Resource
+    ChildBean childBean;
     @Before
     public void setup(){
         MockitoAnnotations.initMocks(this);
