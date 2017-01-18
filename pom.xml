@@ -187,6 +187,12 @@
             <artifactId>mockito-all</artifactId>
             <version>${mockito-all.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>${spring-test.version}</version>
+        </dependency>
     </dependencies>
 
 
@@ -203,6 +209,7 @@
         <c3p0.version>0.9.1.2</c3p0.version>
         <freemarker.version>2.3.21</freemarker.version>
         <mockito-all.version>1.9.5</mockito-all.version>
+        <spring-test.version>4.2.5.RELEASE</spring-test.version>
     </properties>
 
     <build>
