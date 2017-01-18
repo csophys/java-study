@@ -182,6 +182,11 @@
             <artifactId>drools</artifactId>
             <version>6.4.0.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>${mockito-all.version}</version>
+        </dependency>
     </dependencies>
 
 
@@ -197,6 +202,7 @@
         <commons-pool.version>1.6</commons-pool.version>
         <c3p0.version>0.9.1.2</c3p0.version>
         <freemarker.version>2.3.21</freemarker.version>
+        <mockito-all.version>1.9.5</mockito-all.version>
     </properties>
 
     <build>
