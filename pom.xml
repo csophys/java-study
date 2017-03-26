@@ -30,8 +30,8 @@
 
 
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
+            <groupId>com.google.base.guava</groupId>
+            <artifactId>base.guava</artifactId>
             <version>15.0</version>
         </dependency>
 

@@ -1,4 +1,4 @@
-package system;
+package base.system;
 
 import org.junit.Test;
 import org.springframework.core.io.Resource;

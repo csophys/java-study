@@ -1,4 +1,4 @@
-package guava;
+package base.guava;
 
 import com.google.common.collect.*;
 import org.junit.Assert;
