@@ -9,6 +9,10 @@ import java.lang.reflect.Proxy;
  */
 public class ProxyDemo {
 
+
+    // Object result = method.invoke(helloService,args);
+    // Proxy.newProxyInstance返回的是helloService的实例
+
     public static void main(String[] args) {
         //1. 真实的示例引用
         HelloService helloService = new HelloServiceImpl();
