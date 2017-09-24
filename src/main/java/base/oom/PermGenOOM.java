@@ -11,12 +11,18 @@ import java.util.ArrayList;
 public class PermGenOOM {
 
     /*-XX:MaxPermSize=9M -XX:PermSize=9M*/
+
+    /**
+     * JDK1.6及之前有效。1.7及之后无效。不会产生方法区异常现象。方法区异常可以通过模拟动态创建类的形式
+     * @param args
+     */
     @Test
-    public void addPermString() {
+    public static void main(String[] args) {
         ArrayList<String> container = Lists.newArrayList();
-        long i=0;
+        int i=0;
         while (true) {
-            new String(String.valueOf(i++)).intern();
+            container.add(String.valueOf(i++).intern());
         }
+
     }
 }

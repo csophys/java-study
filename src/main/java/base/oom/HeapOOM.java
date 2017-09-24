@@ -10,6 +10,11 @@ import java.util.ArrayList;
  */
 public class HeapOOM {
 
+    /**
+     * -Xms100K -Xmx100K
+     *
+     * java.lang.OutOfMemoryError: GC overhead limit exceeded
+     */
     @Test
     public void testNewMultipleObject() {
         ArrayList<String> container = Lists.newArrayList();
