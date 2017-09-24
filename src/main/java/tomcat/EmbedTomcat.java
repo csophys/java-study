@@ -16,10 +16,11 @@ import java.io.File;
 /**
  * Created by csophys on 16/5/2.
  */
+//FIXME: embedTomcat error
 public class EmbedTomcat {
 
     private static Tomcat tomcat;
-    private static final String CURRENT_MODULE_NAME = "csophys-study";
+    private static final String CURRENT_MODULE_NAME = "java-study";
     private static final int SERVER_PORT = 9999;
 
     @Before
