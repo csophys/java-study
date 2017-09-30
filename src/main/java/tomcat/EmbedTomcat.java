@@ -1,17 +1,12 @@
 package tomcat;
 
 import org.apache.catalina.LifecycleException;
-import org.apache.catalina.WebResourceRoot;
-import org.apache.catalina.core.StandardContext;
 import org.apache.catalina.startup.Tomcat;
-import org.apache.catalina.webresources.DirResourceSet;
-import org.apache.catalina.webresources.StandardRoot;
 import org.junit.Before;
 import org.junit.Test;
 import util.HttpUtil;
 
 import javax.servlet.ServletException;
-import java.io.File;
 
 /**
  * Created by csophys on 16/5/2.
@@ -56,6 +51,12 @@ public class EmbedTomcat {
         String webappDirLocation =  "src/main/webapp/";
         tomcat = new Tomcat();
         tomcat.setPort(SERVER_PORT);
+
+        String docBase = "/Users/csophys/developer/apache-tomcat-8.0.15/webapps/softPhoneTest";
+        tomcat.setBaseDir(docBase);
+        tomcat.addWebapp("/",docBase);
+
+/*
         StandardContext ctx = (StandardContext) tomcat.addWebapp("/", new File(webappDirLocation).getAbsolutePath());
         //tomcat lib dir，不清楚什么意思
         File additionWebInfClasses = new File(CURRENT_MODULE_NAME + "/target/classes");
@@ -63,6 +64,7 @@ public class EmbedTomcat {
         resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes",
                 additionWebInfClasses.getAbsolutePath(), "/"));
         ctx.setResources(resources);
+*/
         tomcat.start();
         synchronized (this) {
             this.notify();
