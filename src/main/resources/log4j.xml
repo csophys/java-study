@@ -22,9 +22,9 @@
 
     <!-- Root Logger -->
     <root>
-        <level value="ERROR"/>
-        <!--        <appender-ref ref="console"/>-->
-        <appender-ref ref="hello"/>
+        <level value="info"/>
+        <appender-ref ref="console"/>
+        <!--<appender-ref ref="hello"/>-->
     </root>
 
 </log4j:configuration>

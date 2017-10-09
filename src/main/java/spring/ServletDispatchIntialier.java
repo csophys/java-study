@@ -5,7 +5,7 @@ import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import spring.bean.WebConfig;
-import spring.bean.WebConfig;
+import spring.bean.WebSocketConfig;
 
 /**
  * Created by csophys on 15/12/18.
@@ -13,7 +13,7 @@ import spring.bean.WebConfig;
 public class ServletDispatchIntialier extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[]{WebConfig.class};
+        return new Class<?>[]{WebConfig.class, WebSocketConfig.class};
     }
 
 

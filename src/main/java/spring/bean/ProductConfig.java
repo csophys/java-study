@@ -1,6 +1,7 @@
 package spring.bean;
 
-import lombok.extern.log4j.Log4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.beans.factory.config.BeanPostProcessor;
@@ -31,7 +32,7 @@ import javax.annotation.Resource;
 @PropertySource("classpath:config.propertity")
 
 //lombok 语法糖
-@Log4j
+//@Log4j
 
 
 @Configuration
@@ -41,6 +42,8 @@ public class ProductConfig {
     @Resource
     ApplicationEventPublisher applicationEventPublisher;
 
+
+    Logger logger = LoggerFactory.getLogger(ProductConfig.class);
 
     @Bean(name = {"messageServiceV1", "messageServiceV2"})
     //@Scope("prototype")
@@ -81,6 +84,7 @@ public class ProductConfig {
             @Override
             public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
                 System.out.println("bean registry annotation bean factory post process");
+                logger.error("error do !!!!");
             }
         };
     }
