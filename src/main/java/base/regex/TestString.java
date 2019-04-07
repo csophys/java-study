@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.NANOSECONDS)
 @Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
-@Measurement(iterations = 100, time = 1, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 @Threads(8)
 @Fork(1)
 public class TestString {
