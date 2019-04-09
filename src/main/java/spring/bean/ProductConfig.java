@@ -26,7 +26,7 @@ import javax.annotation.Resource;
 //@ComponentScan(value = "spring.hello", excludeFilters = @ComponentScan.Filter(type = FilterType.REGEX, pattern = "spring.hello.bean.WebConfig"))
 
 //@Import({MessagePrinter.class})
-//@ImportResource("classpath:application.xml")
+//@ImportResource("classpath:application.xmlclasspath:application.xml")
 
 //导入其他配置文件
 @PropertySource("classpath:config.propertity")

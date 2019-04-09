@@ -9,16 +9,25 @@ public class CompareSort {
         int[] a1 = {11, 2, 21, 3, 1, 42};
         //冒泡排序
         CompareSort.bubbleSort(a1);
-        System.out.println("冒泡排序结果：");
+        System.out.print("冒泡排序结果:");
         for (int i : a1) {
             System.out.print(i + " ");
         }
+        System.out.println("\n");
         a1 = new int[]{11, 2, 21, 3, 1, 42};
         //选择排序
         CompareSort.selection(a1);
-        System.out.println("选择排序结果:");
+        System.out.print("选择排序结果:");
         for (int i : a1) {
-            System.out.print(i+" ");
+            System.out.print(i + " ");
+        }
+        System.out.println("\n");
+        a1 = new int[]{11, 2, 21, 3, 1, 42};
+        //插入排序
+        CompareSort.insert(a1);
+        System.out.print("插入排序结果:");
+        for (int i : a1) {
+            System.out.print(i + " ");
         }
     }
 
@@ -58,5 +67,21 @@ public class CompareSort {
         }
     }
 
+    public static void insert(int[] a) {
+        for (int i = 1; i < a.length; i++) {
+            int temp = a[i];
+            for (int j = i - 1; j >= 0; j--) {
+                if (temp < a[j]) {
+                    a[j + 1] = a[j];
+                    if (j == 0) {
+                        a[j] = temp;
+                    }
+                } else {
+                    a[j + 1] = temp;
+                    break;
+                }
+            }
+        }
+    }
 
 }
