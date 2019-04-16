@@ -39,6 +39,15 @@ public class CompareSort {
         for (int i : a1) {
             System.out.print(i + " ");
         }
+
+        //合并排序
+        System.out.println("\n");
+        a1 = new int[]{11, 2, 21, 3, 1, 42};
+        CompareSort.merge(a1);
+        System.out.print("合并排序结果:");
+        for (int i : a1) {
+            System.out.print(i + " ");
+        }
     }
 
     public static void bubbleSort(int a1[]) {
@@ -125,5 +134,40 @@ public class CompareSort {
         quick(Arrays.copyOfRange(a,0,i));
         //i,length-1的子数组递归处理
         quick(Arrays.copyOfRange(a,i+1,length));
+    }
+
+    //合并排序，自上而下。
+    public static void merge(int[] a) {
+        if (a.length <= 1) {
+            return;
+        }
+        int mid = a.length / 2;
+        int[] beforepart = Arrays.copyOfRange(a, 0, mid);
+        int[] afterpart = Arrays.copyOfRange(a, mid, a.length);
+        merge(beforepart);
+        merge(afterpart);
+        int i = 0, j = 0,index=0;
+        for (; i < beforepart.length && j < afterpart.length;) {
+            if(beforepart[i]<afterpart[j]){
+                a[index]=beforepart[i];
+                i++;
+            }else {
+                a[index]=afterpart[j];
+                j++;
+            }
+            index++;
+        }
+
+        if(i==beforepart.length){
+            while(j<afterpart.length){
+                a[index]=afterpart[j];
+                j++;index++;
+            }
+        }else {
+            while(i<beforepart.length){
+                a[index]=beforepart[i];
+                i++;index++;
+            }
+        }
     }
 }
