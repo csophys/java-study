@@ -1,5 +1,7 @@
 package base.sort;
 
+import java.util.Arrays;
+
 /**
  * Created by csophys on 19/4/7.
  */
@@ -26,6 +28,14 @@ public class CompareSort {
         //插入排序
         CompareSort.insert(a1);
         System.out.print("插入排序结果:");
+        for (int i : a1) {
+            System.out.print(i + " ");
+        }
+        //快速排序
+        System.out.println("\n");
+        a1 = new int[]{11, 2, 21, 3, 1, 42};
+        CompareSort.quick(a1);
+        System.out.print("快速排序结果:");
         for (int i : a1) {
             System.out.print(i + " ");
         }
@@ -84,4 +94,36 @@ public class CompareSort {
         }
     }
 
+    public static void quick(int[] a) {
+        if (a.length <= 1) {
+            return;
+        }
+
+        int length = a.length;
+        int temp = a[0];
+        int i = 0, j = length - 1;
+        int direction = 0;
+        while(i<j){
+            if(direction==0){
+                if(a[j]>=temp){
+                    j--;
+                }else {
+                    a[i]=a[j];
+                    direction=1;
+                }
+            }else {
+                if(a[i]<=temp){
+                    i++;
+                }else {
+                    a[j]=a[i];
+                    direction=0;
+                }
+            }
+        }
+        a[i]=temp;
+        //0，i的子数组递归处理
+        quick(Arrays.copyOfRange(a,0,i));
+        //i,length-1的子数组递归处理
+        quick(Arrays.copyOfRange(a,i+1,length));
+    }
 }
