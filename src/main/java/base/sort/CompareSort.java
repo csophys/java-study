@@ -1,5 +1,7 @@
 package base.sort;
 
+import java.util.Arrays;
+
 /**
  * Created by csophys on 19/4/7.
  */
@@ -84,4 +86,33 @@ public class CompareSort {
         }
     }
 
+
+    //合并排序，自上而下。
+    public static void merge(int[] a) {
+        if (a.length <= 1) {
+            return;
+        }
+        int mid = a.length / 2;
+        int[] beforepart = Arrays.copyOfRange(a, 0, mid);
+        int[] afterpart = Arrays.copyOfRange(a, mid, a.length);
+        int i = 0, j = 0,index=0;
+        int newArray[]=new int[a.length];
+        for (; i < beforepart.length || j < afterpart.length;) {
+            if(beforepart[i]<afterpart[j]){
+                newArray[index]=beforepart[i];
+                i++;
+            }else {
+                newArray[index]=afterpart[j];
+                j++;
+            }
+            index++;
+        }
+
+        if(i==beforepart.length){
+            //Arrays.copy
+        }else {
+
+        }
+
+    }
 }
