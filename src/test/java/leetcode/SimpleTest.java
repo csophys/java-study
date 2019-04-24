@@ -8,11 +8,15 @@ public class SimpleTest {
 
     @Test
     public void twoSum() {
-        int[] twoSum = simple.twoSum(new int[]{2, 4, 5, 1}, 7);
-        Assert.assertEquals(twoSum[0]+twoSum[1],7);
-        twoSum = simple.twoSum(new int[]{2, 6, 5, 1}, 7);
-        Assert.assertEquals(twoSum[0]+twoSum[1],7);
-        twoSum = simple.twoSum(new int[]{2, 4, 3, 1}, 7);
-        Assert.assertEquals(twoSum[0]+twoSum[1],7);
+        int[] nums = new int[]{2, 4, 5, 1};
+        int[] twoSum = simple.twoSum(nums, 7);
+        Assert.assertEquals(nums[twoSum[0]]+nums[twoSum[1]],7);
+        nums = new int[]{2, 6, 5, 1};
+        twoSum = simple.twoSum(nums, 7);
+        Assert.assertEquals(nums[twoSum[0]]+nums[twoSum[1]],7);
+        nums = new int[]{2,5,5,11};
+        twoSum = simple.twoSumHash(nums, 10);
+        Assert.assertEquals(nums[twoSum[0]]+nums[twoSum[1]],10);
+        Assert.assertNotEquals(twoSum[0],twoSum[1]);
     }
 }

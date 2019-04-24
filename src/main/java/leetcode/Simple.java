@@ -1,5 +1,7 @@
 package leetcode;
 
+import java.util.HashMap;
+
 public class Simple {
 
     /**
@@ -14,17 +16,30 @@ public class Simple {
      * 因为 nums[0] + nums[1] = 2 + 7 = 9
      * 所以返回 [0, 1]
      */
-    public int[] twoSum(int[] sums, int target) {
+    public int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
-        for (int i = 0; i < sums.length - 1; i++) {
-            for (int j = 1; j < sums.length; j++) {
-                if (sums[i] + sums[j] == target) {
-                    result[0] = sums[i];
-                    result[1] = sums[j];
+        for (int i = 0; i < nums.length - 1; i++) {
+            for (int j = i + 1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target) {
+                    result[0] = i;
+                    result[1] = j;
                 }
             }
         }
         return result;
     }
+
+    public int[] twoSumHash(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (map.get(target - nums[i]) != null) {
+                return new int[]{map.get(target - nums[i]), i};
+            } else {
+                map.put(nums[i], i);
+            }
+        }
+        throw new IllegalArgumentException();
+    }
+
 
 }

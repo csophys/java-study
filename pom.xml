@@ -81,9 +81,9 @@
         </dependency>
 
 
-<!--
-        spring validate
--->
+        <!--
+                spring validate
+        -->
 
         <dependency>
             <groupId>javax.validation</groupId>
@@ -91,9 +91,9 @@
             <version>1.1.0.Final</version>
         </dependency>
 
-<!--
-        JSR303 Bean Validation  implemention
--->
+        <!--
+                JSR303 Bean Validation  implemention
+        -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -253,8 +253,28 @@
             <version>1.21</version>
             <scope>provided</scope>
         </dependency>
-    </dependencies>
 
+        <!-- 中文NLP处理 -->
+        <dependency>
+            <groupId>com.hankcs</groupId>
+            <artifactId>hanlp</artifactId>
+            <version>portable-1.7.3</version>
+        </dependency>
+
+        <!--java词云效果-->
+        <dependency>
+            <groupId>com.kennycason</groupId>
+            <artifactId>kumo-core</artifactId>
+            <version>1.17</version>
+        </dependency>
+
+        <!-- 中文分词支持 -->
+        <dependency>
+            <groupId>com.kennycason</groupId>
+            <artifactId>kumo-tokenizers</artifactId>
+            <version>1.17</version>
+        </dependency>
+    </dependencies>
 
 
     <properties>
