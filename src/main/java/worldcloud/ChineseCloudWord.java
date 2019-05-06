@@ -4,6 +4,8 @@ import com.kennycason.kumo.CollisionMode;
 import com.kennycason.kumo.WordCloud;
 import com.kennycason.kumo.WordFrequency;
 import com.kennycason.kumo.bg.RectangleBackground;
+import com.kennycason.kumo.font.FontWeight;
+import com.kennycason.kumo.font.KumoFont;
 import com.kennycason.kumo.font.scale.SqrtFontScalar;
 import com.kennycason.kumo.image.AngleGenerator;
 import com.kennycason.kumo.nlp.FrequencyAnalyzer;
@@ -16,7 +18,7 @@ import java.util.Collection;
 import java.util.List;
 
 public class ChineseCloudWord {
-    static String text="CONSULT_DESCRIPTION\n" +
+    static String text=
             "能不能直接退款到账户啊\n" +
             "我领的一个会员红包，领之前在配送范围内，现在领了在配送范围外了，这是怎么回事？能不能给我退了\n" +
             "会员红包使用规则\n" +
@@ -50,6 +52,11 @@ public class ChineseCloudWord {
             "您好\n" +
             "没人接吗\n" +
             "订单为什么取消\n" +
+            "订单为什么取消\n" +
+            "订单为什么取消\n" +
+            "订单为什么取消\n" +
+            "订单为什么取消\n" +
+            "订单为什么取消\n" +
             "出发了吗？\n" +
             "\"人工\n" +
             "\"\n" +
@@ -61,6 +68,22 @@ public class ChineseCloudWord {
             " 支付方式没有\n" +
             "申请退款被拒绝\n" +
             "你好我想把东西放美团去怎么做\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
             "为何没骑手接单\n" +
             "用餐后导致身体不适\n" +
             "怎么办\n" +
@@ -161,6 +184,22 @@ public class ChineseCloudWord {
             "什么情况呀\n" +
             "ninh\n" +
             "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
+            "为何没骑手接单\n" +
             "我要更换绑定得手机号更换不了无法订餐\n" +
             "如何申请退款\n" +
             "红包无法使用\n" +
@@ -204,6 +243,7 @@ public class ChineseCloudWord {
         stopWorld.add("人工");
         stopWorld.add("转人工");
         stopWorld.add("转人工客服");
+        stopWorld.add("用户转接成功");
         stopWorld.add("人工服务");
         stopWorld.add("人工客服");
         stopWorld.add("你好");
@@ -214,13 +254,20 @@ public class ChineseCloudWord {
         frequencyAnalyzer.setStopWords(stopWorld);
         frequencyAnalyzer.setMinWordLength(3);
         String[] textList = text.split("\n");
+        //处理文本之间的相似度。
+
         final List<WordFrequency> wordFrequencies = frequencyAnalyzer.load(Arrays.asList(textList));
-        final Dimension dimension = new Dimension(1000, 1000);
+        final Dimension dimension = new Dimension(1000, 600);
         final WordCloud wordCloud = new WordCloud(dimension, CollisionMode.RECTANGLE);
-        wordCloud.setPadding(2);
+        wordCloud.setPadding(5);
+        wordCloud.setKumoFont(new KumoFont("monospace", FontWeight.BOLD));
         wordCloud.setBackground(new RectangleBackground(dimension));
-        wordCloud.setColorPalette(new ColorPalette(new Color(0xD5CFFA), new Color(0xBBB1FA), new Color(0x9A8CF5), new Color(0x806EF5)));
-        wordCloud.setFontScalar(new SqrtFontScalar(12, 45));
+        //设置背景色
+        wordCloud.setBackgroundColor(new Color(251, 179, 163));
+        wordCloud.setColorPalette(new ColorPalette(new Color(11,67,144), new Color(7,46,143), new Color(15,38,144), new Color(17,100,135)));
+
+        //调整最大字体和最小字体之间的大小
+        wordCloud.setFontScalar(new SqrtFontScalar(10, 100));
         //调整文字放置的方向。
         wordCloud.setAngleGenerator(new AngleGenerator(0,0,2));
         wordCloud.build(wordFrequencies);

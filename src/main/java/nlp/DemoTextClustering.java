@@ -112,12 +112,13 @@ public class DemoTextClustering {
         System.out.println("文本的个数是："+textList.length);
         ClusterAnalyzer<String> analyzer = new ClusterAnalyzer<String>();
         for (int i = 0; i < textList.length; i++) {
-            analyzer.addDocument(i+"", textList[i]);
+            analyzer.addDocument(textList[i], textList[i]);
         }
 
         List<Set<String>> x = analyzer.repeatedBisection(1.0);
         for (Set<String> strings : x) {
             System.out.println(strings.size()+"{"+strings+"}");
         }
+        System.out.println(x);
     }
 }
