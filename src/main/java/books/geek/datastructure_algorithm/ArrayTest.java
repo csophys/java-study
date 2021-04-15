@@ -51,5 +51,7 @@ public class ArrayTest {
         Assert.assertEquals(array[k-1],newArray[k]);
         //判断新数组的最后一个元素是不是原来的最后一个元素
         Assert.assertEquals(array[array.length-1],newArray[newArray.length-1]);
+
+        //刚才针对的是数组的移动。如果快捷的话可以针对要腾出来的位置和数组的最后一个进行交换就可以了。牺牲的是数据的有序性。
     }
 }
