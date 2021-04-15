@@ -54,4 +54,26 @@ public class ArrayTest {
 
         //刚才针对的是数组的移动。如果快捷的话可以针对要腾出来的位置和数组的最后一个进行交换就可以了。牺牲的是数据的有序性。
     }
+
+    @Test
+    public void addAndRemoveArray(){
+        MyArray myArray = new MyArray(10);
+        //插入失败
+        boolean insertResult = myArray.insert(3, 10);
+        Assert.assertFalse(insertResult);
+        //删除失败
+        Assert.assertFalse(myArray.delete(1));
+
+        //添加3个元素
+        myArray.insert(0,4);
+        myArray.insert(1,4);
+        myArray.insert(2,4);
+
+        Assert.assertTrue(myArray.delete(2));
+        Assert.assertFalse(myArray.insert(3,6));
+        Assert.assertTrue(myArray.insert(2,4));
+
+    }
+
+
 }
