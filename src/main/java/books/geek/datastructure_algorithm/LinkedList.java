@@ -188,5 +188,20 @@ public class LinkedList {
         }
     }
 
+    @Test
+    public void reverseWithO1(){
+        LinkNode  temp = new LinkNode(-1);
+        temp.next=null;
+        LinkNode cur=head,next;
+        while(cur!=null){
+            next= cur.next;
+            cur.next=temp.next;
+            temp.next=cur;
+            cur =next;
+        }
+        head= temp.next;
+        printLink(head);
+    }
+
 
 }
