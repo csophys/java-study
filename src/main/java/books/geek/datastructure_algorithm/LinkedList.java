@@ -162,11 +162,31 @@ public class LinkedList {
         }
         //重新打印新链表
         LinkNode cur = p;
+        printLink(cur);
+    }
+
+    //使用头插入反转链表
+    @Test
+    public void reverse(){
+        init();
+        LinkNode temp = new LinkNode(-1);
+        LinkNode cur=head;
+        while (cur!=null){
+            LinkNode newNode = new LinkNode(cur.val);
+            newNode.next=temp.next;
+            temp.next=newNode;
+            cur = cur.next;
+        }
+        printLink(temp.next);
+        return;
+    }
+
+    private void printLink(LinkNode cur) {
         while (cur != null) {
             System.out.println(cur.val);
             cur = cur.next;
         }
-
     }
+
 
 }
