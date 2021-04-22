@@ -136,7 +136,7 @@ public class CompareSort {
         quick(Arrays.copyOfRange(a,i+1,length));
     }
 
-    //合并排序，自上而下。
+
     public static void merge(int[] a) {
         if (a.length <= 1) {
             return;
