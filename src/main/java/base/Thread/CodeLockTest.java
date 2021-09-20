@@ -11,7 +11,8 @@ import java.util.concurrent.locks.ReentrantLock;
  * Created by csophys on 15/7/14.
  */
 public class CodeLockTest {
-    static int i = 1;
+    static Integer i = 1;
+    String s;
 
     public static void getTargtValueWithoutSynchronized() throws InterruptedException {
         //output current value
@@ -96,6 +97,7 @@ public class CodeLockTest {
                 }
             });
         }
+
     }
 
     @Test
