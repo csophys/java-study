@@ -48,7 +48,39 @@ public class CompareSort {
         for (int i : a1) {
             System.out.print(i + " ");
         }
+        a1 = new int[]{121,3};
+        quickSort(a1,0,a1.length-1);
+        System.out.println("\n");
+        System.out.print("Another快速排序结果:");
+        for (int i : a1) {
+            System.out.print(i + " ");
+        }
     }
+
+    static void quickSort(int[] arr,int start,int end){
+        //递归出口
+        if(start>=end) return;
+
+        //设定枢纽值
+        int pivot=arr[start];
+        int i=start,j=end;int temp=0;
+        while(i<j){
+            //先从数组尾部向前找到一个比枢纽值小的值，并且进行交换
+            while(i<j&&arr[j]>=pivot) j--;
+            if(arr[j]<pivot){
+                temp=arr[j];arr[j]=arr[i];arr[i]=temp;
+            }
+            while(i<j&&arr[i]<pivot) i++;
+            if(arr[i]>=pivot){
+                temp=arr[j];arr[j]=arr[i];arr[i]=temp;
+            }
+        }
+        arr[i]=pivot;
+        //对于左边和右边分别递归进行排序
+        quickSort(arr,start,i-1);
+        quickSort(arr,i+1,end);
+    }
+
 
     public static void bubbleSort(int a1[]) {
         //数组初始化的多种表示形式
